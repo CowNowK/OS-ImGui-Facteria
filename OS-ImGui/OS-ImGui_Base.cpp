@@ -16,6 +16,13 @@ namespace OSImGui
         ImGui::CreateContext();
         ImGuiIO& io = ImGui::GetIO(); (void)io;
 
+        ImFontAtlas* fontAtlas = new ImFontAtlas();
+        ImFontConfig arialConfig;
+        arialConfig.FontDataOwnedByAtlas = false;
+        ImFont* arialFont = fontAtlas->AddFontFromFileTTF("c:\\Windows\\Fonts\\ebrimabd.ttf", 20.0f, &arialConfig, io.Fonts->GetGlyphRangesChineseFull());
+
+        io.Fonts = fontAtlas;
+
         ImGui::StyleColorsDark();
         io.LogFilename = nullptr;
 
